@@ -116,3 +116,54 @@ const Header = () => {
 
 </p>
 </details>
+
+---
+
+###### 4. What's the output?
+
+```javascript
+const Header = () => {
+  return (
+    <>
+      <h1>Welcome</h1>
+      <p>to the jungle</p>
+    </>
+  );
+};
+
+ReactDOM.render(<Header />, document.querySelector("#root"));
+```
+
+- A: WTH!
+- B: Error
+- C: Noting
+- D: `<h1>Welcome</h1><p>to the jungle</p>`
+
+<details><summary><b>Answer</b></summary>
+<p>
+
+#### Answer: D
+
+Instead of wrapping the elements inside an element, we have some other alternatives:
+
+1. Return an array of element, be careful about the `,` between elements
+
+```javascript
+return [<h1>Welcome</h1>, <p>to the jungle</p>];
+```
+
+2. Use `React.Fragment`. The difference from using other elements is when this component gets translated to HTML later on, the `h1` and `p` elements won't be wrapped at all. Feel free to inspect and see for yourself!
+
+```javascript
+return (
+  <React.Fragment>
+    <h1>Welcome</h1>
+    <p>to the jungle</p>
+  </React.Fragment>
+);
+```
+
+3. Use the shorthand syntax for `React.Fragment`. `<>` and `</>` are actually synonyms of `<React.Fragment>` and `</React.Fragment>` respectively. Neat trick, right?
+
+</p>
+</details>

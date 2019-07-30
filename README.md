@@ -167,3 +167,31 @@ return (
 
 </p>
 </details>
+
+---
+
+###### 5. What's the output?
+
+```javascript
+const Header = () => {
+  return <hEADER>Welcome</hEADER>;
+};
+
+ReactDOM.render(<Header />, document.querySelector("#root"));
+```
+
+- A: `<header>Welcome</header>`
+- B: Error
+- C: Noting
+
+<details><summary><b>Answer</b></summary>
+<p>
+
+#### Answer: A
+
+You might think this will be an infite recursive call, where `Header` calls itself an infinite number of times until the program crashes. You'd be wrong!
+
+Since the first letter in `hEADER` is lowercase, it will be considered as an HTML tag. And btw, HTML tags are case-insensetive.
+
+</p>
+</details>

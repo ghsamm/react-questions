@@ -70,3 +70,49 @@ The following would have worked (notice the `/` at the end of the self-closing t
 
 </p>
 </details>
+
+---
+
+###### 3. What's the output?
+
+```javascript
+
+const Header = () => {
+  return (
+    <h1>Welcome</h1>
+    <p>to the jungle</p>
+  )
+}
+
+ReactDOM.render(
+  <Header />,
+  document.querySelector("#root")
+);
+```
+
+- A: Nothing
+- B: `<h1>Welcome</h1><p>to the jungle</p>`
+- C: Error
+
+<details><summary><b>Answer</b></summary>
+<p>
+
+#### Answer: C
+
+All react components must return a single element, in this case we returned two!
+
+What we can do instead is wrap the elments inside another enclosing element, like so:
+
+```javascript
+const Header = () => {
+  return (
+    <div>
+      <h1>Welcome</h1>
+      <p>to the jungle</p>
+    </div>
+  );
+};
+```
+
+</p>
+</details>

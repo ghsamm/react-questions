@@ -37,3 +37,36 @@ Only then would react detect we're using our own custom component and not an HTM
 
 </p>
 </details>
+
+---
+
+###### 2. What's the output?
+
+```javascript
+ReactDOM.render(
+  <img src="image.jpg">,
+  document.querySelector("#root")
+);
+```
+
+- A: Nothing
+- B: Error
+- C: `<img src="image.jpg>`
+
+<details><summary><b>Answer</b></summary>
+<p>
+
+#### Answer: B
+
+In HTML, we can have _self-closing_ tags, `img` and `br` are two popular examples.
+
+In React however, all tag (or component) calls must be closed.
+
+The following would have worked (notice the `/` at the end of the self-closing tag)
+
+```html
+<img src="image.jpg" />
+```
+
+</p>
+</details>

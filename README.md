@@ -4,7 +4,7 @@ A list of React questions, and their explanations. Inspired by lydiahallie/javas
 
 ---
 
-###### 1. What's the output?
+##### 1. What's the output?
 
 ```javascript
 function siteHeader() {
@@ -40,7 +40,7 @@ Only then would react detect we're using our own custom component and not an HTM
 
 ---
 
-###### 2. What's the output?
+##### 2. What's the output?
 
 ```javascript
 ReactDOM.render(
@@ -73,7 +73,7 @@ The following would have worked (notice the `/` at the end of the self-closing t
 
 ---
 
-###### 3. What's the output?
+##### 3. What's the output?
 
 ```javascript
 
@@ -119,7 +119,7 @@ const Header = () => {
 
 ---
 
-###### 4. What's the output?
+##### 4. What's the output?
 
 ```javascript
 const Header = () => {
@@ -170,7 +170,7 @@ return (
 
 ---
 
-###### 5. What's the output?
+##### 5. What's the output?
 
 ```javascript
 const Header = () => {
@@ -192,6 +192,40 @@ ReactDOM.render(<Header />, document.querySelector("#root"));
 You might think this will be an infite recursive call, where `Header` calls itself an infinite number of times until the program crashes. You'd be wrong!
 
 Since the first letter in `hEADER` is lowercase, it will be considered as an HTML tag. And btw, HTML tags are case-insensetive.
+
+</p>
+</details>
+
+---
+
+##### 6. What's the output?
+
+```javascript
+class Course {
+  render() {
+    return <div>Course content</div>;
+  }
+}
+
+ReactDOM.render(<Course />, document.querySelector("#root"));
+```
+
+- A: Nothing
+- B: `<div>Course content</div>`
+- C: Error
+
+<details><summary><b>Answer</b></summary>
+<p>
+
+#### Answer: C
+
+All class components in React must inherit from the base class `React.Component`.
+
+We can change the first line to the following:
+
+```javascript
+  class Course extends React.Component {
+```
 
 </p>
 </details>

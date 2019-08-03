@@ -271,3 +271,77 @@ super(props);
 
 </p>
 </details>
+
+---
+
+##### 8. What's the output?
+
+```javascript
+class WhoAmI extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      name: "Sam",
+      age: 25
+    };
+    this.setState({
+      age: 26
+    });
+  }
+  render() {
+    return (
+      <>
+        Hello, my name is {this.state.name}. I am {this.state.age} years old.
+      </>
+    );
+  }
+}
+
+ReactDOM.render(<WhoAmI />, document.querySelector("#root"));
+```
+
+- A: `Hello, my name is Sam. I am 25 years old.`
+- B: `Hello, my name is Sam. I am 26 years old.`
+- C: Error
+- D: Nothing
+
+<details><summary><b>Answer</b></summary>
+<p>
+
+#### Answer: A
+
+Calling `this.setState` in the constructor does not change the state.
+
+Moreover, React will warn you and ask you to set the value directly to the state.
+
+We can either remove the `this.setState` call altogether:
+
+```javascript
+this.state = {
+  name: "Sam",
+  age: 26
+};
+```
+
+or only call it when the component is mounted, using the built-in React method `componentDidMount`:
+
+```javascript
+componentDidMount() {
+  this.setState({
+    age: 26
+  });
+}
+```
+
+`componentDidMount` gets called automatically by React when the component gets mounted.
+
+There exist other similar built-in methods, try guessing when do they get called:
+
+- `componentDidUpdate()`
+- `componentWillUnmount()`
+- `componentDidCatch()`
+
+If you want to learn more about these methods, try searching "react life cycle"
+
+</p>
+</details>

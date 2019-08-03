@@ -345,3 +345,55 @@ If you want to learn more about these methods, try searching "react life cycle"
 
 </p>
 </details>
+
+---
+
+##### 9. What's the console output?
+
+```javascript
+class Logging extends React.Component {
+  constructor(props) {
+    super(props);
+    console.log("constructor");
+  }
+  componentDidMount() {
+    console.log("didMount");
+  }
+  componentWillMount() {
+    console.log("willMount");
+  }
+  render() {
+    console.log("render");
+    return <>Rendering!</>;
+  }
+}
+
+ReactDOM.render(<Logging />, document.querySelector("#root"));
+```
+
+- A: `willMount`, `constructor`, `render`, `didMount`
+- B: `willMount`, `constructor`,, `didMount`, `render`
+- C: `constructor`, `willMount`, `render`, `didMount`
+- D: `constructor`, `willMount`, `didMount`, `render`
+
+<details><summary><b>Answer</b></summary>
+<p>
+
+#### Answer: D
+
+Of course this is just a contrived example that no one will use in real life.
+
+The important thing to know is there are many stages in the life of a component, namely:
+
+1. Construction
+2. Mounting
+3. Rendering
+4. Updating
+5. Unmounting
+
+Each one of these stages has one or more corresponding built-in method with different use cases depending on how we want our component to behave.
+
+As an example, if the component needs data from a server, getting that data will usually be done in the mounting phase.
+
+</p>
+</details>

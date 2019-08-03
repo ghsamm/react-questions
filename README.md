@@ -229,3 +229,45 @@ We can change the first line to the following:
 
 </p>
 </details>
+
+---
+
+##### 7. What's the output?
+
+```javascript
+class Course extends React.Component {
+  constructor(props) {
+    this.state = {
+      isLoading: true
+    };
+  }
+  render() {
+    if (this.state.isLoading) {
+      return "Loading ...";
+    }
+    return <div>Course content</div>;
+  }
+}
+
+ReactDOM.render(<Course />, document.querySelector("#root"));
+```
+
+- A: Nothing
+- B: Error
+- C: `Loading...`
+
+<details><summary><b>Answer</b></summary>
+<p>
+
+#### Answer: B
+
+When using an inherited class in javascript, the keyword `this` can only be used after calling `super` in the constructor method
+
+In our case, the `Course` class inherits from the `React.Component` class. We must add this line before using `this.state`:
+
+```javascript
+super(props);
+```
+
+</p>
+</details>

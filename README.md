@@ -397,3 +397,38 @@ As an example, if the component needs data from a server, getting that data will
 
 </p>
 </details>
+
+---
+
+##### 10. What's the output?
+
+```javascript
+class Course extends React.Component {
+  constructor(props) {
+    this.state = {
+      isLoading: true
+    };
+  }
+  render() {
+    return this.state.isLoading ? "Loading ..." : <div>Course content</div>;
+  }
+}
+
+ReactDOM.render(<Course />, document.querySelector("#root"));
+```
+
+- A: `this.state.isLoading`
+- B: `Loading...`
+- C: `<div>Course content</div>`
+
+<details><summary><b>Answer</b></summary>
+<p>
+
+#### Answer: B
+
+The `condition ? resultIfTrue : resultIfFalse` syntax is called "ternaray condition". This is a javascript syntax usually used in React components when there is "conditional rendering" with two possiblities.
+
+In the above example, if `this.state.isLoading` is true (which it is), the whole ternary expression will be replaced with `"Loading..."`. Otherwise it will be replaced with `<div>Course content</div>`
+
+</p>
+</details>
